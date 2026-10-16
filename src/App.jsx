@@ -1,20 +1,26 @@
 
-import { Button } from '@/components/ui/button'
+import Navbar from './components/Navbar'
+import Home from './components/Home'
+import Projects from './sections/Projects'
+import Academics from './sections/Academics'
+import About from './sections/About'
+import Console from './sections/Console'
+import Contact from './sections/Contact'
+import './App.css'
 
-function App() {
+export default function App() {
   return (
-    <main className="min-h-screen p-8">
-      <h1 className="mb-6 text-4xl font-black">
-        Neobrutalism UI Test
-      </h1>
+    <div className="site-frame">
+      <Navbar />
 
-      <div className="flex flex-wrap gap-4">
-        <Button>Default Button</Button>
-        <Button variant="neutral">Neutral Button</Button>
-        <Button variant="noShadow">No Shadow</Button>
-      </div>
-    </main>
+      <main>
+        <Home />
+        <Projects />
+        <Academics />
+        <About />
+        <Console />
+        <Contact />
+      </main>
+    </div>
   )
 }
-
-export default App
