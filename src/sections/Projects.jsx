@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import projects from '../data/projects'
 
@@ -59,15 +59,18 @@ export default function Projects() {
                                 </div>
                             </div>
 
-                            <button
+                            <Link
                                 className="learn-more"
-                                type="button"
-                                onClick={() =>
-                                    alert('We will connect this to the project detail page next.')
-                                }
+                                to={`/projects/${project.id === 1
+                                    ? 'crazy-fjord'
+                                    : project.id === 2
+                                        ? 'ai-traffic-management'
+                                        : project.id === 3
+                                            ? 'cyphora'
+                                            : 'weather-man'}`}
                             >
                                 Learn more ↗
-                            </button>
+                            </Link>
                         </article>
                     ))}
                 </div>

@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 const links = [
     { label: 'Home', href: '#home' },
