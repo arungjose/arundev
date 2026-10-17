@@ -22,7 +22,6 @@ function PortfolioLayout() {
         <Projects />
         <Academics />
         <About />
-        <Console />
         <Contact />
       </main>
     </div>
