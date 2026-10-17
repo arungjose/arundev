@@ -1,12 +1,13 @@
+
 import { Button } from '@/components/ui/button'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const links = [
-    { label: 'Home', href: '#home' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Academics', href: '#academics' },
-    { label: 'About', href: '#about' },
-    { label: 'Console', href: '#console' },
+    { label: 'Home', href: '#home', type: 'section' },
+    { label: 'Projects', href: '#projects', type: 'section' },
+    { label: 'Academics', href: '#academics', type: 'section' },
+    { label: 'About', href: '#about', type: 'section' },
+    { label: 'Console', href: '/console', type: 'route' },
 ]
 
 export default function Navbar() {
@@ -17,11 +18,17 @@ export default function Navbar() {
             </div>
 
             <div className="navbar-links">
-                {links.map((link) => (
-                    <a key={link.href} href={link.href}>
-                        {link.label}
-                    </a>
-                ))}
+                {links.map((link) =>
+                    link.type === 'route' ? (
+                        <Link key={link.href} to={link.href}>
+                            {link.label}
+                        </Link>
+                    ) : (
+                        <a key={link.href} href={link.href}>
+                            {link.label}
+                        </a>
+                    )
+                )}
             </div>
 
             <Button asChild className="navbar-contact">

@@ -43,6 +43,8 @@ export default function App() {
           }
         />
 
+        <Route path="/console" element={<Console />} />
+
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </HashRouter>

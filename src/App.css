@@ -279,10 +279,10 @@ a {
 }
 
 /* ===== Other sections ===== */
-main>section:not(.home):not(.projects-section):not(.academics-section) {
+/* main>section:not(.home):not(.projects-section):not(.academics-section) {
   padding: var(--panel-padding);
   border-bottom: var(--border-width) solid var(--nb-black);
-}
+} */
 
 /* ===== Responsive layout ===== */
 @media (max-width: 900px) {
@@ -1877,6 +1877,342 @@ main>section:not(.home):not(.projects-section):not(.academics-section) {
 
   .contact-submit,
   .contact-social-link {
+    transition: none;
+  }
+}
+
+
+/* =========================================
+   TERMINAL CONSOLE PAGE
+========================================= */
+
+.console-page {
+  --terminal-bg: #0e1927;
+  --terminal-card: #15253a;
+  --terminal-border: #24364e;
+  --terminal-text: #e6edf5;
+  --terminal-muted: #8da7c4;
+  --terminal-mint: #59ddd0;
+  --terminal-yellow: #ffd66b;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: clamp(16px, 4vw, 48px);
+  background: var(--terminal-bg);
+  color: var(--terminal-text);
+  font-family: "DM Sans", sans-serif;
+}
+
+.console-window {
+  width: min(100%, 900px);
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--terminal-border);
+  border-radius: 18px;
+  background: var(--terminal-card);
+  box-shadow: 0 20px 60px rgb(0 0 0 / 20%);
+}
+
+/* Window header */
+
+.console-titlebar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--terminal-border);
+  background: #192b40;
+}
+
+.console-window-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.console-window-button {
+  display: block;
+  flex: 0 0 12px;
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+}
+
+button.console-window-button {
+  cursor: pointer;
+}
+
+.console-window-button.close {
+  background: #ff5f57;
+}
+
+.console-window-button.minimize {
+  background: #febc2e;
+}
+
+.console-window-button.maximize {
+  background: #28c840;
+}
+
+.console-window-button.close:hover {
+  filter: brightness(1.2);
+}
+
+.console-window-title {
+  color: var(--terminal-muted);
+  font-family: monospace;
+  font-size: 0.78rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.console-titlebar-spacer {
+  min-width: 0;
+}
+
+/* Terminal contents */
+
+.console-body {
+  padding: clamp(16px, 4vw, 34px);
+  font-family: "Courier New", monospace;
+  font-size: clamp(12px, 1.6vw, 15px);
+  line-height: 1.7;
+}
+
+.console-prompt-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 30px;
+  font-size: clamp(12px, 2vw, 19px);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.console-prompt-symbol,
+.console-prompt-user {
+  color: var(--terminal-mint);
+}
+
+.console-prompt-path {
+  color: #82aaff;
+}
+
+/* ASCII-inspired banner */
+
+.console-banner {
+  margin: 0 auto 30px;
+  text-align: center;
+}
+
+.console-ascii {
+  margin: 0 auto 12px;
+  color: var(--terminal-yellow);
+  font-family: monospace;
+  font-size: clamp(6px, 1.35vw, 11px);
+  font-weight: 800;
+  line-height: 1.15;
+  white-space: pre;
+  overflow: hidden;
+}
+
+.console-banner h1 {
+  margin: 0;
+  color: var(--terminal-yellow);
+  font-family: monospace;
+  font-size: clamp(2.2rem, 9vw, 5.8rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: clamp(0.04em, 1vw, 0.14em);
+  overflow-wrap: anywhere;
+  text-shadow: 3px 3px 0 #8d6b29;
+}
+
+.console-subtitle {
+  margin: 12px 0 0;
+  color: var(--terminal-mint);
+  font-family: monospace;
+  font-size: clamp(0.8rem, 2.6vw, 1.4rem);
+  line-height: 1.4;
+}
+
+/* Welcome and command responses */
+
+.console-welcome {
+  margin-bottom: 22px;
+}
+
+.console-welcome p,
+.console-response p {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.console-welcome p {
+  color: var(--terminal-text);
+}
+
+.console-output {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 38vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-color: var(--terminal-border) transparent;
+  scrollbar-width: thin;
+}
+
+.console-command-line {
+  display: flex;
+  gap: 12px;
+  color: var(--terminal-text);
+  overflow-wrap: anywhere;
+}
+
+.console-command-line>span:first-child,
+.console-input-prompt {
+  color: var(--terminal-mint);
+  font-weight: 800;
+}
+
+.console-response {
+  padding-left: 22px;
+  color: var(--terminal-muted);
+}
+
+.console-response p {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* Interactive command line */
+
+.console-input-line {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 18px;
+  min-width: 0;
+}
+
+.console-input-prompt {
+  font-size: 1.1rem;
+}
+
+.console-input-line input {
+  flex: 1;
+  width: 0;
+  min-width: 0;
+  padding: 4px 0;
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  background: transparent;
+  color: var(--terminal-text);
+  font-family: inherit;
+  font-size: inherit;
+  caret-color: var(--terminal-mint);
+}
+
+.console-input-line input:focus-visible {
+  outline: none;
+}
+
+.console-footer {
+  margin: 0;
+  color: var(--terminal-muted);
+  font-family: monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+.console-footer span {
+  padding: 0 6px;
+  color: var(--terminal-mint);
+}
+
+/* Mobile */
+
+@media (max-width: 560px) {
+  .console-page {
+    justify-content: flex-start;
+    padding: 16px 10px;
+  }
+
+  .console-window {
+    border-radius: 13px;
+  }
+
+  .console-titlebar {
+    min-height: 44px;
+    padding: 0 12px;
+    gap: 8px;
+  }
+
+  .console-window-controls {
+    gap: 6px;
+  }
+
+  .console-window-button {
+    flex-basis: 10px;
+    width: 10px;
+    height: 10px;
+  }
+
+  .console-window-title {
+    font-size: 0.68rem;
+  }
+
+  .console-body {
+    padding: 18px 14px;
+    font-size: 12px;
+  }
+
+  .console-prompt-heading {
+    gap: 6px;
+    margin-bottom: 24px;
+  }
+
+  .console-banner {
+    margin-bottom: 24px;
+  }
+
+  .console-ascii {
+    font-size: clamp(4px, 1.4vw, 7px);
+  }
+
+  .console-banner h1 {
+    font-size: clamp(2rem, 10vw, 3.2rem);
+    letter-spacing: 0.035em;
+    text-shadow: 2px 2px 0 #8d6b29;
+  }
+
+  .console-welcome {
+    overflow-wrap: anywhere;
+  }
+
+  .console-output {
+    max-height: 40vh;
+  }
+
+  .console-response {
+    padding-left: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .console-window-button {
     transition: none;
   }
 }
