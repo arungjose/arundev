@@ -1,5 +1,4 @@
 
-import { Button } from '@/components/ui/button'
 import { Link } from 'react-router-dom'
 
 const links = [
@@ -14,7 +13,9 @@ export default function Navbar() {
     return (
         <nav className="navbar">
             <div className="navbar-logo">
-                <a href="#home">arunjose</a>
+                <a href="#home">
+                    <img src="/images/logoblack.png" alt="Arun Jose" />
+                </a>
             </div>
 
             <div className="navbar-links">
@@ -31,9 +32,9 @@ export default function Navbar() {
                 )}
             </div>
 
-            <Button asChild className="navbar-contact">
-                <a href="#contact">Contact me ↗</a>
-            </Button>
+            <a className="navbar-contact" href="#contact">
+                Contact me ↗
+            </a>
         </nav>
     )
 }

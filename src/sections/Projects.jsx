@@ -3,20 +3,27 @@ import { useState } from 'react'
 import projects from '../data/projects'
 
 const skills = [
-    { name: 'Python', short: 'Py' },
-    { name: 'React', short: 'Re' },
-    { name: 'Java', short: 'Ja' },
-    { name: 'C', short: 'C' },
-    { name: 'Godot', short: 'Go' },
-    { name: 'Flutter', short: 'Fl' },
-    { name: 'PyTorch', short: 'Pt' },
-    { name: 'OpenCV', short: 'CV' },
+    { name: 'Python', short: 'Py', logo: "public/skills/python.png" },
+    { name: 'Java', short: 'Ja', logo: "public/skills/java.png" },
+    { name: 'C', short: 'C', logo: "public/skills/c.png" },
+    { name: 'Godot', short: 'Go', logo: "public/skills/godot.png" },
+    { name: 'Flutter', short: 'Fl', logo: "public/skills/flutter.png" },
+    { name: 'MySQL', short: 'My', logo: "public/skills/mysql.png" },
+    { name: 'JavaScript', short: 'Js', logo: "public/skills/js.png" },
+    { name: 'Git', short: 'Gi', logo: "public/skills/git.png" },
+    { name: 'Django', short: 'Dj', logo: "public/skills/django.png" },
+    { name: 'Flask', short: 'Fl', logo: "public/skills/flask.png" },
+    { name: 'Docker', short: 'Do', logo: "public/skills/docker.png" },
+    { name: 'Affinity', short: 'Af', logo: "public/skills/af.png" },
+    { name: 'React', short: 'Re', logo: "public/skills/react.png" },
 ]
 
 const pageSize = 4
 
 export default function Projects() {
-    const [page, setPage] = useState(1)
+    const [page, setPage] = useState(
+        () => Number(sessionStorage.getItem('projectsPage')) || 1
+    )
 
     const pageCount = Math.ceil(projects.length / pageSize)
     const visibleProjects = projects.slice(
@@ -26,6 +33,7 @@ export default function Projects() {
 
     function changePage(nextPage) {
         setPage(nextPage)
+        sessionStorage.setItem('projectsPage', String(nextPage))
     }
 
     return (
@@ -50,13 +58,6 @@ export default function Projects() {
                                     <p>{project.description}</p>
                                 </div>
 
-                                <div className="project-image">
-                                    {project.image ? (
-                                        <img src={project.image} alt={project.title} />
-                                    ) : (
-                                        <span>PROJECT<br />IMAGE</span>
-                                    )}
-                                </div>
                             </div>
 
                             <Link
@@ -64,10 +65,20 @@ export default function Projects() {
                                 to={`/projects/${project.id === 1
                                     ? 'crazy-fjord'
                                     : project.id === 2
-                                        ? 'ai-traffic-management'
+                                        ? 'axolotl'
                                         : project.id === 3
-                                            ? 'cyphora'
-                                            : 'weather-man'}`}
+                                            ? 'ai-traffic-management'
+                                            : project.id === 4
+                                                ? 'cyphora'
+                                                : project.id === 5
+                                                    ? 'cygnus'
+                                                    : project.id === 6
+                                                        ? 'signum'
+                                                        : project.id === 7
+                                                            ? 'weather-man'
+                                                            : project.id === 8
+                                                                ? 'souch'
+                                                                : 'unknown-project'}`}
                             >
                                 Learn more ↗
                             </Link>
@@ -115,7 +126,7 @@ export default function Projects() {
                     <div className="skills-track">
                         {[...skills, ...skills].map((skill, index) => (
                             <div className="skill-item" key={`${skill.name}-${index}`}>
-                                <div className="skill-logo">{skill.short}</div>
+                                <div className="skill-logo"> <img src={skill.logo} alt={skill.short} /></div>
                                 <span>{skill.name}</span>
                             </div>
                         ))}
@@ -124,6 +135,6 @@ export default function Projects() {
 
                 <p className="skills-note">TOOLS OF THE TRADE</p>
             </aside>
-        </section>
+        </section >
     )
 }

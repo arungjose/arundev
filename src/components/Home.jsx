@@ -11,6 +11,10 @@ export default function Home() {
                     Jose<span>.</span>
                 </h1>
 
+                <p className="intro-description">
+                    and I like experimenting! I am a software developer and a game designer. Explore my portfolio to see some of my work and learn more about me.
+                </p>
+
                 <div className="home-buttons">
                     <a className="action-button primary-button" href="#projects">
                         View projects ↗
@@ -21,39 +25,47 @@ export default function Home() {
                     </a>
                 </div>
 
-                <p className="intro-description">
-                    I build software, experiment with AI, and turn ideas into
-                    interactive projects.
+                <p className="resume-note">
+                    Download my resume{" "}
+                    <a href="src\files\Arun G Jose - Resume.pdf" download>
+                        <u>here</u>
+                    </a>.
                 </p>
+
 
                 <div className="social-area">
                     <h2>Connect with me</h2>
 
                     <div className="social-links">
-                        <a href="#contact" aria-label="GitHub">GH</a>
-                        <a href="#contact" aria-label="LinkedIn">in</a>
-                        <a href="#contact" aria-label="Email">@</a>
+                        <a href="https://github.com/arungjose" aria-label="GitHub">
+                            <img src="public\images\github-icon.png"></img>
+                        </a>
+                        <a href="https://www.linkedin.com/in/arungjose/" aria-label="LinkedIn">
+                            <img src="public\images\linkedin-icon.png"></img>
+                        </a>
+                        <a href="#contact" aria-label="Email">
+                            <img src="public\images\gmail-icon.png"></img>
+                        </a>
                     </div>
                 </div>
             </div>
 
             {/* Right panel: Featured project */}
             <div className="featured">
-                <p className="eyebrow">CURRENTLY BUILDING / 001</p>
+                <p className="eyebrow">COMING SOON</p>
 
                 <h2>Crazy Fjord</h2>
 
                 <p>
                     A boat adventure through beautiful fjords.
-                    Explore my latest game development project.
+                    Stay tuned for the release!
                 </p>
 
                 <div className="featured-art">
-                    <span>CRAZY FJORD</span>
-                    <p>GAME ARTWORK GOES HERE</p>
+                    <img src="/images/crazy-fjord.png" alt="Crazy Fjord" />
                 </div>
 
-                <a className="featured-link" href="#projects">
+                <a className="featured-link" href="#projects/crazy-fjord">
                     Explore project ↗
                 </a>
             </div>
