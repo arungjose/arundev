@@ -3,11 +3,11 @@ import { useState } from 'react'
 
 const education = [
     {
-        title: "Bachelor's in Technology",
+        title: "Bachelor of Technology",
         institution: 'APJ Abdul Kalam Technological University',
         period: '2022 - 2026',
         description:
-            'Computer Science and Engineering. Add a short description of your degree and academic focus.',
+            'Computer Science and Engineering. Coding Club Member. Winner of hachathon held at Technopark, Trivandrum. Conducted multiple workshops and seminars on various topics related to programming and technology.',
         topics: [
             'Computer Science',
             'Programming',
@@ -22,49 +22,63 @@ const education = [
         institution: "St. Antony's Public School",
         period: '2020 - 2022',
         description:
-            'Add a short description of your higher secondary education and stream.',
-        topics: ['ADD SUBJECT', 'ADD SUBJECT', 'ADD SUBJECT'],
+            '',
+        topics: ['Physics', 'Chemistry', 'Mathematics', 'Computer Science'],
         color: 'blue',
     },
     {
         title: 'Secondary Education',
-        institution: 'ADD YOUR SCHOOL NAME',
-        period: 'ADD YOUR STUDY PERIOD',
+        institution: 'Sree Narayana Public School',
+        period: '" - 2020',
         description:
-            'Add a short description of your secondary education.',
-        topics: ['ADD SUBJECT', 'ADD SUBJECT', 'ADD SUBJECT'],
+            '',
+        topics: [],
         color: 'yellow',
     },
 ]
 
 const certificates = [
     {
-        title: 'Certificate 01',
-        issuer: 'ADD ISSUING ORGANIZATION',
-        year: 'YEAR',
-        description: 'Add a short description of this certification.',
-        image: null,
+        title: 'Artificial Intelligence',
+        issuer: 'Srishti Innovative Pvt Ltd.',
+        year: '2026',
+        description: '',
+        image: 'public/certify/ai_srishti.png',
     },
     {
-        title: 'Certificate 02',
-        issuer: 'ADD ISSUING ORGANIZATION',
-        year: 'YEAR',
-        description: 'Add a short description of this certification.',
-        image: null,
+        title: 'Google Cloud Computing Foundations',
+        issuer: 'NPTEL',
+        year: '2024',
+        description: '',
+        image: 'public/certify/nptel_gcp.jpg',
     },
     {
-        title: 'Certificate 03',
-        issuer: 'ADD ISSUING ORGANIZATION',
-        year: 'YEAR',
-        description: 'Add a short description of this certification.',
-        image: null,
+        title: 'Artificial Intelligence and Machine Learning',
+        issuer: 'IBM',
+        year: '2025',
+        description: '',
+        image: 'public/certify/ibmai.png',
     },
     {
-        title: 'Certificate 04',
-        issuer: 'ADD ISSUING ORGANIZATION',
-        year: 'YEAR',
-        description: 'Add a short description of this certification.',
-        image: null,
+        title: 'Python Fundamentals',
+        issuer: 'HackerRank',
+        year: '2024',
+        description: '',
+        image: 'public/certify/python_hr.png',
+    },
+    {
+        title: 'SQL Fundamentals',
+        issuer: 'HackerRank',
+        year: '2024',
+        description: '',
+        image: 'public/certify/sql_hr.png',
+    },
+    {
+        title: 'Python ',
+        issuer: 'UST Global',
+        year: '2024',
+        description: '',
+        image: 'public/certify/ust.jpeg',
     },
 ]
 

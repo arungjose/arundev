@@ -963,7 +963,7 @@ a {
 
 .academics-section {
   display: grid;
-  grid-template-columns: minmax(0, 7fr) minmax(260px, 3fr);
+  grid-template-columns: minmax(0, 7fr) minmax(260px, 4fr);
   align-items: stretch;
   border-bottom: var(--border-width) solid var(--nb-black);
   background: var(--nb-white);
@@ -980,7 +980,7 @@ a {
 
 .academics-heading,
 .certifications-heading {
-  min-height: 94px;
+  min-height: 75px;
   display: flex;
   align-items: center;
   padding: 20px 26px;
@@ -1035,6 +1035,10 @@ a {
 
 .education-yellow {
   background: var(--poster-yellow);
+}
+
+.education-indigo {
+  background: var(--system-indigo);
 }
 
 .education-content {
@@ -1136,7 +1140,7 @@ a {
 }
 
 .certificate-arrow:hover {
-  background: var(--acid-mint);
+  background: var(--hot-pink);
 }
 
 .certificate-arrow:active {
