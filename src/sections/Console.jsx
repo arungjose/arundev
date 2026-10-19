@@ -1,27 +1,45 @@
-
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { consoleContent } from "../data/consoleContent";
 
+/* ANSI Shadow font, built line by line so nothing needs escaping */
+const ASCII_ARUN = [
+    " █████╗ ██████╗ ██╗   ██╗███╗   ██╗",
+    "██╔══██╗██╔══██╗██║   ██║████╗  ██║",
+    "███████║██████╔╝██║   ██║██╔██╗ ██║",
+    "██╔══██║██╔══██╗██║   ██║██║╚██╗██║",
+    "██║  ██║██║  ██║╚██████╔╝██║ ╚████║",
+    "╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝",
+].join("\n");
+
+const ASCII_DEV = [
+    "██████╗ ███████╗██╗   ██╗",
+    "██╔══██╗██╔════╝██║   ██║",
+    "██║  ██║█████╗  ██║   ██║",
+    "██║  ██║██╔══╝  ╚██╗ ██╔╝",
+    "██████╔╝███████╗ ╚████╔╝ ",
+    "╚═════╝ ╚══════╝  ╚═══╝  ",
+].join("\n");
+
 export default function Console() {
     const navigate = useNavigate();
     const inputRef = useRef(null);
-    const outputRef = useRef(null);
+    const scrollRef = useRef(null);
 
     const [command, setCommand] = useState("");
     const [history, setHistory] = useState([]);
     const [historyIndex, setHistoryIndex] = useState(-1);
 
-    const { prompt, title, subtitle, welcome, commands } =
-        consoleContent;
+    const { prompt, welcome, commands } = consoleContent;
 
     useEffect(() => {
         inputRef.current?.focus();
     }, []);
 
+    // Keep the newest line in view, like a real terminal
     useEffect(() => {
-        if (outputRef.current) {
-            outputRef.current.scrollTop = outputRef.current.scrollHeight;
+        if (scrollRef.current) {
+            scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
         }
     }, [history]);
 
@@ -32,11 +50,6 @@ export default function Console() {
         if (!rawCommand) return;
 
         const normalized = rawCommand.toLowerCase();
-
-        setHistory((previous) => [
-            ...previous,
-            { type: "command", text: rawCommand },
-        ]);
 
         setCommand("");
         setHistoryIndex(-1);
@@ -52,28 +65,27 @@ export default function Console() {
         }
 
         const result = commands[normalized];
-
         const response = result
             ? result.output
             : consoleContent.unknownCommand(rawCommand);
 
         setHistory((previous) => [
             ...previous,
-            {
-                type: "output",
-                lines: response,
-            },
+            { type: "command", text: rawCommand },
+            { type: "output", lines: response },
         ]);
     }
 
     function handleKeyDown(event) {
+        if (event.key !== "ArrowUp" && event.key !== "ArrowDown") return;
+
+        event.preventDefault();
+
+        const enteredCommands = history
+            .filter((item) => item.type === "command")
+            .map((item) => item.text);
+
         if (event.key === "ArrowUp") {
-            event.preventDefault();
-
-            const enteredCommands = history
-                .filter((item) => item.type === "command")
-                .map((item) => item.text);
-
             if (!enteredCommands.length) return;
 
             const nextIndex =
@@ -83,15 +95,7 @@ export default function Console() {
 
             setHistoryIndex(nextIndex);
             setCommand(enteredCommands[nextIndex]);
-        }
-
-        if (event.key === "ArrowDown") {
-            event.preventDefault();
-
-            const enteredCommands = history
-                .filter((item) => item.type === "command")
-                .map((item) => item.text);
-
+        } else {
             if (historyIndex < 0) return;
 
             const nextIndex = historyIndex + 1;
@@ -110,68 +114,47 @@ export default function Console() {
         <main className="console-page">
             <section className="console-window">
                 <header className="console-titlebar">
-                    <div className="console-window-controls">
-                        <button
-                            className="console-window-button close"
-                            type="button"
-                            aria-label="Return to portfolio"
-                            title="Return to portfolio"
-                            onClick={() => navigate("/")}
-                        />
-                        <span
-                            className="console-window-button minimize"
-                            aria-hidden="true"
-                        />
-                        <span
-                            className="console-window-button maximize"
-                            aria-hidden="true"
-                        />
-                    </div>
+                    <button
+                        className="console-close"
+                        type="button"
+                        aria-label="Return to portfolio"
+                        title="Return to portfolio"
+                        onClick={() => navigate("/")}
+                    >
+                        X
+                    </button>
 
                     <span className="console-window-title">
                         arundev — terminal
                     </span>
-                    <span className="console-titlebar-spacer" />
                 </header>
 
                 <div
                     className="console-body"
-                    onClick={() => inputRef.current?.focus()}
+                    ref={scrollRef}
+                    onClick={() => {
+                        // don't steal focus while the user is selecting text
+                        if (!window.getSelection()?.toString()) {
+                            inputRef.current?.focus();
+                        }
+                    }}
                 >
-                    <div className="console-prompt-heading">
-                        <span className="console-prompt-symbol">❯</span>
-                        <span className="console-prompt-user">
-                            {prompt}
-                        </span>
-                        <span className="console-prompt-path">-[~]</span>
-                    </div>
-
-                    <div className="console-banner">
-                        <pre className="console-ascii" aria-label={title}>
-                            {`    /\u005c
-   /  \u005c
-  / /\u005c \u005c
- / ____ \u005c
-/_/    \u005c_\u005c`}
+                    <div className="console-banner" aria-label="arun dev">
+                        <pre className="console-ascii console-ascii-arun">
+                            {ASCII_ARUN}
                         </pre>
-
-                        <h1>{title}</h1>
-                        <p className="console-subtitle">{subtitle}</p>
+                        <pre className="console-ascii console-ascii-dev">
+                            {ASCII_DEV}
+                        </pre>
                     </div>
 
                     <div className="console-welcome">
                         {welcome.map((line, index) => (
-                            <p key={index}>
-                                {line || "\u00a0"}
-                            </p>
+                            <p key={index}>{line || "\u00a0"}</p>
                         ))}
                     </div>
 
-                    <div
-                        className="console-output"
-                        ref={outputRef}
-                        aria-live="polite"
-                    >
+                    <div className="console-output" aria-live="polite">
                         {history.map((item, index) => (
                             <div
                                 key={`${index}-${item.type}`}
