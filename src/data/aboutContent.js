@@ -5,7 +5,7 @@ export const aboutContent = {
 
     story: {
         number: "01",
-        title: "THE PERSON BEHIND THE CODE",
+        title: "The person behind the code.",
         paragraphs: [
             "I'm a 22 year old software engineer from Kerala, India. I have a passion for building things that make a difference in people's lives. I enjoy learning new technologies and building projects that challenge me to grow as a developer. I won a hackathon where I only had 5 hours to build and deploy a project. I believe that anyone can learn to code if they are passionate about it. If you want to collaborate on a project or just want to chat about tech, feel free to reach out to me. I would love to connect with you.",
         ],
