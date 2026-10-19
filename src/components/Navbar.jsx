@@ -14,7 +14,7 @@ export default function Navbar() {
         <nav className="navbar">
             <div className="navbar-logo">
                 <a href="#home">
-                    <img src="/images/logoblack.png" alt="Arun Jose" />
+                    <img src={`${import.meta.env.BASE_URL}/images/logoblack.png`} alt="Arun Jose" />
                 </a>
             </div>
 
