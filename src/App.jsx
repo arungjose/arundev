@@ -9,6 +9,7 @@ import Academics from './sections/Academics'
 import About from './sections/About'
 import Console from './sections/Console'
 import Contact from './sections/Contact'
+import Footer from './components/footer'
 
 import './App.css'
 
@@ -24,6 +25,7 @@ function PortfolioLayout() {
         <About />
         <Contact />
       </main>
+      <Footer />
     </div>
   )
 }
