@@ -5,7 +5,7 @@ export const contactContent = {
 
     cardTitle: "Email me",
     image: {
-        src: "/images/contact-art.svg",
+        src: `${import.meta.env.BASE_URL}/images/contact-art.svg`,
         alt: "Colorful geometric abstract illustration",
         caption: "LET'S MAKE SOMETHING.",
     },

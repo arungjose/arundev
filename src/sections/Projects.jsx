@@ -3,19 +3,19 @@ import { useState } from 'react'
 import projects from '../data/projects'
 
 const skills = [
-    { name: 'Python', short: 'Py', logo: "public/skills/python.png" },
-    { name: 'Java', short: 'Ja', logo: "public/skills/java.png" },
-    { name: 'C', short: 'C', logo: "public/skills/c.png" },
-    { name: 'Godot', short: 'Go', logo: "public/skills/godot.png" },
-    { name: 'Flutter', short: 'Fl', logo: "public/skills/flutter.png" },
-    { name: 'MySQL', short: 'My', logo: "public/skills/mysql.png" },
-    { name: 'JavaScript', short: 'Js', logo: "public/skills/js.png" },
-    { name: 'Git', short: 'Gi', logo: "public/skills/git.png" },
-    { name: 'Django', short: 'Dj', logo: "public/skills/django.png" },
-    { name: 'Flask', short: 'Fl', logo: "public/skills/flask.png" },
-    { name: 'Docker', short: 'Do', logo: "public/skills/docker.png" },
-    { name: 'Affinity', short: 'Af', logo: "public/skills/af.png" },
-    { name: 'React', short: 'Re', logo: "public/skills/react.png" },
+    { name: 'Python', short: 'Py', logo: `${import.meta.env.BASE_URL}/skills/python.png` },
+    { name: 'Java', short: 'Ja', logo: `${import.meta.env.BASE_URL}/skills/java.png` },
+    { name: 'C', short: 'C', logo: `${import.meta.env.BASE_URL}/skills/c.png` },
+    { name: 'Godot', short: 'Go', logo: `${import.meta.env.BASE_URL}/skills/godot.png` },
+    { name: 'Flutter', short: 'Fl', logo: `${import.meta.env.BASE_URL}/skills/flutter.png` },
+    { name: 'MySQL', short: 'My', logo: `${import.meta.env.BASE_URL}/skills/mysql.png` },
+    { name: 'JavaScript', short: 'Js', logo: `${import.meta.env.BASE_URL}/skills/js.png` },
+    { name: 'Git', short: 'Gi', logo: `${import.meta.env.BASE_URL}/skills/git.png` },
+    { name: 'Django', short: 'Dj', logo: `${import.meta.env.BASE_URL}/skills/django.png` },
+    { name: 'Flask', short: 'Fl', logo: `${import.meta.env.BASE_URL}/skills/flask.png` },
+    { name: 'Docker', short: 'Do', logo: `${import.meta.env.BASE_URL}/skills/docker.png` },
+    { name: 'Affinity', short: 'Af', logo: `${import.meta.env.BASE_URL}/skills/af.png` },
+    { name: 'React', short: 'Re', logo: `${import.meta.env.BASE_URL}/skills/react.png` },
 ]
 
 const pageSize = 4

@@ -38,13 +38,13 @@ export default function Home() {
 
                     <div className="social-links">
                         <a href="https://github.com/arungjose" aria-label="GitHub">
-                            <img src={`${import.meta.env.BASE_URL}\images\github-icon.png`}></img>
+                            <img src={`${import.meta.env.BASE_URL}/images/github-icon.png`}></img>
                         </a>
                         <a href="https://www.linkedin.com/in/arungjose/" aria-label="LinkedIn">
-                            <img src={`${import.meta.env.BASE_URL}\images\linkedin-icon.png`}></img>
+                            <img src={`${import.meta.env.BASE_URL}/images/linkedin-icon.png`}></img>
                         </a>
                         <a href="#contact" aria-label="Email">
-                            <img src={`${import.meta.env.BASE_URL}\images\gmail-icon.png`}></img>
+                            <img src={`${import.meta.env.BASE_URL}/images/gmail-icon.png`}></img>
                         </a>
                     </div>
                 </div>

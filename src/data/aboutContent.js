@@ -42,7 +42,7 @@ export const aboutContent = {
     ],
 
     photo: {
-        src: "/images/me.jpg",
+        src: `${import.meta.env.BASE_URL}/images/me.jpg`,
         alt: "Portrait photograph",
         caption: "THAT'S ME.",
     },

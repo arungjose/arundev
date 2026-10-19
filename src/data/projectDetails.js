@@ -9,7 +9,7 @@ const projectDetails = {
             'Crazy Fjord is nearing completion and is planned for release on the Google Play Store. Stay tuned!'
         ],
         technologies: ['Godot', 'GDScript', 'Affinity'],
-        image: 'public/images/crazy-fjord.png',
+        image: `${import.meta.env.BASE_URL}/images/crazy-fjord.png`,
         repository: '',
         screenshots: [],
     },
@@ -25,7 +25,7 @@ const projectDetails = {
         ],
         technologies: ['Flutter', 'Reinforcement Learning', 'Dart', 'Google Gemini 2.5 Flash'],
 
-        image: 'public/images/axolotl.jpeg',
+        image: `${import.meta.env.BASE_URL}/images/axolotl.jpeg`,
         repository: 'https://github.com/Adarsh-S-kmr/Axolotl',
         screenshots: [],
     },
@@ -39,7 +39,7 @@ const projectDetails = {
             'The project brings together deep learning, computer vision, fuzzy logic, and backend development to explore a more adaptive and efficient approach to urban traffic management, with a focus on prioritizing emergency vehicles and improving road efficiency.'
         ],
         technologies: ['Python', 'YOLO', 'OpenCV'],
-        image: 'public/images/trafficmanagement.png',
+        image: `${import.meta.env.BASE_URL}/images/trafficmanagement.png`,
         repository: 'https://github.com/arungjose/trafficnetwork',
         link: 'https://ieeexplore.ieee.org/document/11349057',
         screenshots: [],
@@ -54,7 +54,7 @@ const projectDetails = {
             'Cyphora was built to explore how decentralized technologies can help reduce barriers to online information. The project focuses on static websites and provides a simple, chat-based interface for requesting and accessing mirrored pages.'
         ],
         technologies: ['Python', 'IPFS', 'Tor proxy', 'Telegram Bot'],
-        image: 'public/images/cyphora.png',
+        image: `${import.meta.env.BASE_URL}/images/cyphora.png`,
         repository: 'https://github.com/arungjose/Cyphora',
         screenshots: [],
     },
@@ -68,7 +68,7 @@ const projectDetails = {
             'CYGNUS also features a web-based demo where users can enter celestial object parameters and receive predictions. The project combines astronomy, data science, and predictive modelling to make exoplanet classification more accessible and interactive.'
         ],
         technologies: ['Python', 'Scikit-learn', 'Pandas', 'TensorFlow'],
-        image: 'public/images/cygnus.png',
+        image: `${import.meta.env.BASE_URL}/images/cygnus.png`,
         repository: 'https://github.com/arungjose/exoplanet_koi',
         screenshots: [],
     },
@@ -82,7 +82,7 @@ const projectDetails = {
             'This project explores how real-time computer vision can support gesture-based communication and accessibility, providing a foundation for future sign language recognition and human-computer interaction applications.'
         ],
         technologies: ['Python', 'TensorFlow', 'OpenCV'],
-        image: 'public/images/signum.png',
+        image: `${import.meta.env.BASE_URL}/images/signum.png`,
         repository: 'https://github.com/arungjose/Signum',
         screenshots: [],
     },
@@ -96,7 +96,7 @@ const projectDetails = {
             'The project demonstrates how traditional data processing and language understanding can work alongside locally hosted large language models to create a practical AI assistant, combining API integration, context-aware query handling, and generative AI in a single pipeline.'
         ],
         technologies: ['Python', 'spaCy', 'OpenWeatherMap', 'Ollama'],
-        image: 'public/images/weatherman.png',
+        image: `${import.meta.env.BASE_URL}/images/weatherman.png`,
         repository: 'https://github.com/arungjose/Weather-Man',
         screenshots: [],
     },
@@ -109,7 +109,7 @@ const projectDetails = {
             'Collaboration is welcome! Whether you have ideas for new audio effects, want to fix bugs, or help improve the software, feel free to check out the project and contribute. Let’s build something great together!'
         ],
         technologies: ['Python', 'PyAudio'],
-        image: 'public/images/souch.png',
+        image: `${import.meta.env.BASE_URL}/images/souch.png`,
         repository: 'https://github.com/arungjose/souch',
         screenshots: [],
     },
