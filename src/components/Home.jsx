@@ -1,3 +1,5 @@
+import resume from '../files/Arun G Jose - Resume.pdf'
+
 export default function Home() {
     return (
         <section id="home" className="home">
@@ -27,7 +29,7 @@ export default function Home() {
 
                 <p className="resume-note">
                     Download my resume{" "}
-                    <a href="src\files\Arun G Jose - Resume.pdf" download>
+                    <a href={resume} download>
                         <u>here</u>
                     </a>.
                 </p>
