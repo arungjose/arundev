@@ -18,6 +18,7 @@ export default function Footer() {
 
             <div className="footer-credit">
                 <span className="footer-name">Arun G. Jose</span>
+                <span className="footer-info">The artstyle used for this website is called Neo-Brutalism, in case you were wondering.</span>
                 <span className="footer-legal">
                     © {new Date().getFullYear()} · All rights reserved.
                 </span>
